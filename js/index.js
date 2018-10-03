@@ -2,6 +2,7 @@ const num = parseFloat(prompt('What number of Fibonacci do you search?'));
 alert("for method. Your number - " + fiboFor(num));
 alert("while method. Your number - " + fiboWhile(num));
 alert("reduce method. Your number - " + fiboReduce(num));
+alert("array method. Your number - " + fiboArray(num));
 
 
 function fiboFor(num) {
@@ -36,4 +37,13 @@ function fiboReduce(num) {
     }
     return fiboRed.reduce( (acc, el) => el );    
 }
-    
+
+function fiboArray(num) {
+    let fibArr = [1, 1];
+    for (let i = 3; i <= num; i++) {
+        let sum = fibArr[0] + fibArr[1];
+        fibArr[0] = fibArr[1];
+        fibArr[1] = sum;
+    }
+    return fibArr[1];
+}
